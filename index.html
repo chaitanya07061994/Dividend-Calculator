@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dividend Calculator</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        background-image: url()
+
+ }
+
+        .calculator {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .input-container {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 12px 24px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #dividend-result {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h1>Dividend Calculator</h1>
+        <div class="input-container">
+            <label for="investment">Investment Amount:</label>
+            <input type="number" id="investment" placeholder="Enter investment amount">
+        </div>
+        <div class="input-container">
+            <label for="dividend-rate">Dividend Rate (%):</label>
+            <input type="number" id="dividend-rate" placeholder="Enter dividend rate">
+        </div>
+        <button onclick="calculateDividend()">Calculate Dividend</button>
+        <div id="dividend-result"></div>
+    </div>
+
+    <script>
+        function calculateDividend() {
+            const investment = parseFloat(document.getElementById('investment').value);
+            const dividendRate = parseFloat(document.getElementById('dividend-rate').value);
+            
+            if (!isNaN(investment) && !isNaN(dividendRate)) {
+                const dividend = (investment * dividendRate) / 100;
+                document.getElementById('dividend-result').textContent = `Annual Dividend: $${dividend.toFixed(2)}`;
+            } else {
+                document.getElementById('dividend-result').textContent = 'Please enter valid numbers.';
+            }
+        }
+    </script>
+</body>
+</html>
